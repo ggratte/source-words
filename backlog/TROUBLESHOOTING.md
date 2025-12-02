@@ -93,6 +93,18 @@ If automatic recovery fails, manually update `.last-review` with the current tim
 
 **Solution:** Check file permissions and ensure no other process has the files open.
 
+## Multi-Developer Environments
+
+**Symptom:** Checkpoint tracking becomes unreliable. Reviews miss commits or claim to have reviewed work that was never analyzed.
+
+**Explanation:** The checkpoint mechanism assumes linear git history. In team environments:
+
+- Rebasing onto main with others' commits creates phantom "reviewed" commits
+- Merge commits confuse the commit range detection
+- Multiple developers modifying `.last-review` causes tracking conflicts
+
+**Solution:** For teams, use tools designed for collaborative workflows (Linear, Jira, GitHub Issues).
+
 ## Recovery Steps
 
 If issues persist:

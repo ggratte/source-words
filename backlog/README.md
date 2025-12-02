@@ -1,6 +1,8 @@
 # Backlog System
 
-A self-contained backlog that lives in your repository. Track features, improvements, and technical debt in a way that stays synchronized with your codebase.
+A self-contained backlog for **solo developers**. Track features, improvements, and technical debt in a way that stays synchronized with your codebase.
+
+> **Note:** This system relies on linear git history and is not designed for team environments. See [Important: Solo Developer Tool](#important-solo-developer-tool) for details.
 
 ## What This Is
 
@@ -16,6 +18,16 @@ A **development backlog** for tracking:
 - A project management tool (no sprints, priorities, assignments)
 - A replacement for Linear, Jira, or similar tools
 - A place for business requirements or user research
+
+## Important: Solo Developer Tool
+
+The commit-based review tracking relies on linear git history. In team environments, this breaks down:
+
+- **Rebasing conflicts:** The `.last-review` checkpoint may claim commits were reviewed when they weren't
+- **Merge complexity:** Not built to handle merge conflicts or divergent branches
+- **Checkpoint drift:** Multiple developers pushing creates gaps between what's tracked and what's reviewed
+
+For teams, use tools designed for collaborative workflows (Linear, Jira, GitHub Issues).
 
 ## Why It Lives In The Repo
 
