@@ -197,6 +197,55 @@ Create stories when you:
 - Lack code examples or file references
 - Are pure business requirements without technical context
 
+## Image Attachments
+
+When a story needs visual assets (screenshots, diagrams, mockups), store them in a separate assets folder.
+
+**Supported formats:** Images only (PNG, JPG, GIF, SVG, WebP). Other attachment types like PDFs, videos, or documents are not supported since AI assistants can reliably process images but have limited or inconsistent support for other binary formats.
+
+### Structure
+
+```
+backlog/
+  stories/
+    251203-ui-redesign.md
+  assets/
+    251203-ui-redesign/
+      mockup.png
+      current-state.png
+```
+
+### Naming Convention
+
+- Create a folder in `backlog/assets/` matching the story filename (without `.md`)
+- Use descriptive filenames for images: `mockup.png`, `before-screenshot.png`, `architecture-diagram.svg`
+
+### Referencing Images
+
+Use relative paths from the story file:
+
+```markdown
+![Current UI](../assets/251203-ui-redesign/current-state.png)
+
+The mockup below shows the proposed changes:
+
+![Proposed mockup](../assets/251203-ui-redesign/mockup.png)
+```
+
+### When to Include Images
+
+- UI/UX issues where visual context helps
+- Architecture diagrams for complex refactoring
+- Screenshots demonstrating bugs or current behavior
+- Mockups for proposed changes
+
+### Image Maintenance
+
+Images are reviewed alongside stories during the review process. See [REVIEW-PROCESS.md](REVIEW-PROCESS.md) for:
+- Orphaned image cleanup (assets without corresponding stories)
+- Unreferenced image removal (images not linked in their story)
+- Staleness detection (images that may be outdated)
+
 ## Story Lifecycle
 
 1. **Create** - Document work to be done

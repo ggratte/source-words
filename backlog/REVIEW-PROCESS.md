@@ -231,9 +231,100 @@ If no stories are affected by any changes, report this and continue to Phase 4.
 
 ---
 
-## PHASE 4: Checkpoint Update and Reporting
+## PHASE 4: Image Asset Review
 
-### Step 4.1: Update checkpoint file
+### Step 4.1: Clean up orphaned asset folders
+
+List all folders in `backlog/assets/` and check for corresponding stories:
+
+```bash
+# For each folder in backlog/assets/
+for dir in backlog/assets/*/; do
+  folder_name=$(basename "$dir")
+  story_file="backlog/stories/${folder_name}.md"
+  if [ ! -f "$story_file" ]; then
+    # Orphaned - no corresponding story exists
+    rm -rf "$dir"
+  fi
+done
+```
+
+**Action:** Delete any asset folder that has no corresponding story file.
+
+**Track:** Add deleted folders to `orphaned_assets_deleted` list for reporting.
+
+### Step 4.2: Clean up unreferenced images within stories
+
+For each story that has a corresponding asset folder:
+
+1. **Read the story file** and extract all image references:
+   - Pattern: `![...](../assets/<folder-name>/...)` or similar markdown image syntax
+   - Extract the referenced filenames
+
+2. **List files in the asset folder**
+
+3. **Compare:** Identify images that exist in the folder but are NOT referenced in the story
+
+4. **Action:** Delete unreferenced images
+
+5. **Track:** Add deleted images to `unreferenced_images_deleted` list
+
+### Step 4.3: Assess image freshness for affected stories
+
+For each story that was marked as affected in Phase 3 AND has images:
+
+1. **Check for broken references:**
+   - Parse image references in the story
+   - Verify each referenced file exists in the asset folder
+   - **If broken:** Flag in report as "broken image reference"
+
+2. **Assess potential staleness based on:**
+   - Story describes UI/visual changes AND referenced code has been modified
+   - Story content was updated but images were not mentioned in changes
+   - Commit messages suggest visual changes (keywords: "UI", "design", "layout", "style", "appearance")
+
+3. **If images appear potentially stale, append notice to story:**
+
+   ```markdown
+
+   ---
+
+   > ⚠️ **Image review needed:** Code referenced in this story has changed
+   > significantly. Screenshots or diagrams may be outdated and should be
+   > verified against the current implementation.
+   ```
+
+4. **Track:** Add stories with stale image warnings to `stories_image_warning` list
+
+### Step 4.4: Report image review results
+
+Include in the final report (Phase 5):
+
+```
+[IF ORPHANED ASSETS DELETED]
+== Image Cleanup ==
+
+Orphaned asset folders deleted (no corresponding story):
+- <folder-name>/
+
+[IF UNREFERENCED IMAGES DELETED]
+Unreferenced images deleted:
+- <folder-name>/<image-file>
+
+[IF BROKEN IMAGE REFERENCES]
+⚠️ Broken image references found:
+- <story-filename>: missing <image-path>
+
+[IF STALE IMAGE WARNINGS ADDED]
+⚠️ Stories flagged for image review:
+- <story-filename>: images may be outdated
+```
+
+---
+
+## PHASE 5: Checkpoint Update and Reporting
+
+### Step 5.1: Update checkpoint file
 
 Update `backlog/.last-review` with current timestamp:
 
@@ -247,7 +338,7 @@ by which commit last modified this file (via git log).
 
 Generate timestamp: `date -u +"%Y-%m-%dT%H:%M:%SZ"`
 
-### Step 4.2: Report summary to user
+### Step 5.2: Report summary to user
 
 ```
 Backlog Review Complete
@@ -287,7 +378,7 @@ Please review and commit manually:
   git commit -m "docs: update backlog"
 ```
 
-### Step 4.3: Provide context for manual review
+### Step 5.3: Provide context for manual review
 
 ```
 Changes made by this review:
