@@ -1,0 +1,13 @@
+# Backlog Review Checkpoint
+
+This file tracks when the backlog was last reviewed. The review process uses
+git history to find commits since this checkpoint and update affected stories.
+
+For details on how reviews work, see REVIEW-PROCESS.md
+
+---
+
+Last reviewed: 2025-12-02T10:15:00Z
+
+Note: The timestamp above is for human readability. The actual checkpoint is
+determined by which commit last modified this file (via `git log -1 backlog/.last-review`).
