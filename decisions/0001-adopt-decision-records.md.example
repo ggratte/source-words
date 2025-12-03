@@ -1,0 +1,49 @@
+# Adopt Decision Records
+
+**Status:** Accepted
+**Date:** YYYY-MM-DD
+**Scope:** Architecture
+**Tags:** documentation, decisions, process
+
+## Context
+
+As the codebase grows, we make decisions that shape its direction - choosing technologies, establishing patterns, setting priorities. These decisions and their rationale often exist only in memory or scattered conversations.
+
+When revisiting code months later, or when onboarding new contributors, the "why" behind choices is lost. This leads to:
+- Reopening settled decisions
+- Making inconsistent choices
+- Losing valuable context about trade-offs considered
+
+We need a lightweight way to capture decisions with their context.
+
+## Decision
+
+We will adopt a decision records system based on Architecture Decision Records (ADR).
+
+Decisions will be:
+- Stored in `decisions/` as numbered markdown files
+- Immutable once accepted (supersede rather than edit)
+- Categorized by scope: Architecture, UX, or Product-Direction
+- Tagged for discoverability
+
+## Consequences
+
+**Positive:**
+- Historical context preserved for future reference
+- AI assistants can read decisions for better suggestions
+- New contributors can understand past choices
+- Reduces repeated discussions about settled topics
+
+**Negative:**
+- Small overhead to document decisions
+- Risk of becoming stale if not maintained
+- May over-document trivial choices initially
+
+**Mitigations:**
+- Keep the template lightweight
+- Only document decisions worth explaining
+- Supersede outdated decisions rather than letting them rot
+
+## Related
+
+- See: [core/FORMAT.md](core/FORMAT.md) for the template
