@@ -46,13 +46,13 @@ External tools drift. Work documented in Jira goes stale as code evolves. This b
 2. **Write the problem:** Describe the issue with code examples
 3. **Commit:** `git add backlog/ && git commit -m "Add backlog story"`
 
-See [STORY-FORMAT.md](STORY-FORMAT.md) for details.
+See [FORMAT.md](FORMAT.md) for details.
 
 ### For AI Assistants
 
 | Task | Documentation |
 |------|---------------|
-| Create a new story | [STORY-FORMAT.md](STORY-FORMAT.md) |
+| Create a new story | [FORMAT.md](FORMAT.md) |
 | Run a backlog review | [REVIEW-PROCESS.md](REVIEW-PROCESS.md) |
 | Set up commands | [INSTALLATION.md](INSTALLATION.md) |
 | Fix issues | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) |
@@ -63,11 +63,12 @@ See [STORY-FORMAT.md](STORY-FORMAT.md) for details.
 
 ```
 backlog/
-├── README.md              # This file - system overview
-├── STORY-FORMAT.md        # How to write stories
-├── REVIEW-PROCESS.md      # AI instructions for reviews
-├── INSTALLATION.md        # Tool setup (Claude Code, Cursor)
-├── TROUBLESHOOTING.md     # Common issues and solutions
+├── core/
+│   ├── README.md          # This file - system overview
+│   ├── FORMAT.md          # How to write stories
+│   ├── REVIEW-PROCESS.md  # AI instructions for reviews
+│   ├── INSTALLATION.md    # Tool setup (Claude Code, Cursor)
+│   └── TROUBLESHOOTING.md # Common issues and solutions
 ├── .last-review           # Checkpoint tracking
 └── YYMMDD-*.md           # Story files
 ```
@@ -92,7 +93,7 @@ After making code changes, run a review to update affected stories:
 ```
 /review-backlog
 ```
-Or ask your AI: "Read backlog/REVIEW-PROCESS.md and execute the review."
+Or ask your AI: "Read backlog/core/REVIEW-PROCESS.md and execute the review."
 
 ### Query before starting work
 
@@ -102,7 +103,7 @@ Ask natural language questions:
 
 ### Create a new story
 
-When you identify work to be done, create a story file. See [STORY-FORMAT.md](STORY-FORMAT.md).
+When you identify work to be done, create a story file. See [FORMAT.md](FORMAT.md).
 
 ---
 

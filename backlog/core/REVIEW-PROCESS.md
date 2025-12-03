@@ -144,11 +144,7 @@ Store this hash as `new_checkpoint_commit` for reporting.
 ### Step 3.1: Read all story files
 
 Read all markdown files from `backlog/*.md`, excluding:
-- `backlog/README.md`
-- `backlog/STORY-FORMAT.md`
-- `backlog/REVIEW-PROCESS.md`
-- `backlog/INSTALLATION.md`
-- `backlog/TROUBLESHOOTING.md`
+- `backlog/core/` (all files in the core folder)
 - `backlog/.last-review`
 
 **If no story files found:** Report that backlog is empty, update checkpoint, and stop.
@@ -440,6 +436,6 @@ After Phase 4, the user should:
 5. The commit containing `.last-review` becomes the new checkpoint
 
 See also:
-- [STORY-FORMAT.md](STORY-FORMAT.md) - How to write stories
+- [FORMAT.md](FORMAT.md) - How to write stories
 - [TROUBLESHOOTING.md](TROUBLESHOOTING.md) - Error resolution
 - [INSTALLATION.md](INSTALLATION.md) - Setting up commands

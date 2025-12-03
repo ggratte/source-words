@@ -55,14 +55,14 @@ If automatic recovery fails, manually update `.last-review` with the current tim
 
 **Symptom:** `No stories to review`
 
-**Explanation:** The backlog folder exists but contains no story files. Create stories using the format in [STORY-FORMAT.md](STORY-FORMAT.md).
+**Explanation:** The backlog folder exists but contains no story files. Create stories using the format in [FORMAT.md](FORMAT.md).
 
 ### AI Cannot Find Relevant Stories
 
 **Symptom:** Natural language queries return no results.
 
 **Solutions:**
-1. Check that story files exist in `backlog/` (files matching `*.md`, excluding README and docs)
+1. Check that story files exist in `backlog/` (files matching `*.md`, excluding the `core/` folder)
 2. Ensure story content includes relevant keywords for your query
 3. Try rephrasing with different terms
 4. Add more context to story descriptions
@@ -109,7 +109,7 @@ If automatic recovery fails, manually update `.last-review` with the current tim
 
 If issues persist:
 
-1. **Verify structure:** Ensure `backlog/` contains README.md and .last-review
+1. **Verify structure:** Ensure `backlog/` contains `core/` folder and `.last-review`
 2. **Check git status:** Run `git status` in the repository root
 3. **Reset checkpoint:** Delete `.last-review`, create fresh with current timestamp, commit
 4. **Full reset:** If all else fails, delete the backlog folder and reinitialize

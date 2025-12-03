@@ -45,7 +45,7 @@ Create `.claude/commands/review-backlog.md` in your repository:
 ```markdown
 # Review Backlog
 
-Read and execute the backlog review process defined in `backlog/REVIEW-PROCESS.md`.
+Read and execute the backlog review process defined in `backlog/core/REVIEW-PROCESS.md`.
 
 Follow all phases in sequence:
 1. PHASE 1: Preparation and Validation
@@ -64,11 +64,12 @@ your-repo/
 │   └── commands/
 │       └── review-backlog.md    # Command definition
 ├── backlog/
-│   ├── README.md
-│   ├── STORY-FORMAT.md
-│   ├── REVIEW-PROCESS.md
-│   ├── INSTALLATION.md
-│   ├── TROUBLESHOOTING.md
+│   ├── core/
+│   │   ├── README.md
+│   │   ├── FORMAT.md
+│   │   ├── REVIEW-PROCESS.md
+│   │   ├── INSTALLATION.md
+│   │   └── TROUBLESHOOTING.md
 │   ├── .last-review
 │   └── [story files]
 └── [your code]
@@ -114,8 +115,8 @@ Create `.claude/commands/review-backlog.md` (same location and content as Claude
 Any AI tool with file access and git capabilities can use this system:
 
 1. **Point the AI to the documentation:**
-   - "Read `backlog/REVIEW-PROCESS.md` and execute the review workflow"
-   - "Read `backlog/STORY-FORMAT.md` and create a new story for [issue]"
+   - "Read `backlog/core/REVIEW-PROCESS.md` and execute the review workflow"
+   - "Read `backlog/core/FORMAT.md` and create a new story for [issue]"
 
 2. **Or create a tool-specific command** that references REVIEW-PROCESS.md
 
@@ -124,7 +125,7 @@ Any AI tool with file access and git capabilities can use this system:
 You can always run reviews manually by telling the AI:
 
 ```
-Read the backlog review process in backlog/REVIEW-PROCESS.md and execute it.
+Read the backlog review process in backlog/core/REVIEW-PROCESS.md and execute it.
 Analyze commits since the last checkpoint and update affected stories.
 ```
 
@@ -145,7 +146,7 @@ After setup, verify everything works:
 
 To update to a newer version:
 
-1. Replace documentation files (README.md, STORY-FORMAT.md, etc.)
+1. Replace documentation files in `core/` (README.md, FORMAT.md, etc.)
 2. Keep your `.last-review` checkpoint file
 3. Keep your story files
 4. Update the command file if the process changed
