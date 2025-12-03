@@ -1,6 +1,6 @@
 # Source Words
 
-A lightweight system for capturing the context behind your code - the decisions, tasks, and conversations that drive development.
+A system for capturing development context - decisions, tasks, and ongoing thinking - designed for AI-assisted workflows.
 
 ## Three Places for Valuable Context
 
@@ -8,35 +8,29 @@ A lightweight system for capturing the context behind your code - the decisions,
 |--------|-------------------|
 | **[decisions/](decisions/)** | Choices already made - architecture, technology, direction (ADR-style) |
 | **[backlog/](backlog/)** | Work to be done - bugs, features, refactoring tasks |
-| **[conversations/](conversations/)** | Everything else worth keeping - vision talks, exploratory discussions, insights |
+| **[discussions/](discussions/)** | Ongoing thinking - valuable context that isn't scoped to a specific decision or task |
 
 Designed to work together, but each can be used on its own.
 
-## Quick Start
+## Examples
 
-**Add a backlog item:**
-```
-"Add a backlog story for the N+1 query issue in the orders API"
-"Add a story about improving the empty state in the dashboard"
-```
+**Backlog:**
+- "Refactor the OrderService to reduce N+1 queries"
+- "Add empty state illustration to the dashboard"
 
-**Record a decision:**
-```
-"Create a decision record for choosing PostgreSQL over MySQL"
-"Record our decision to use a bottom navigation pattern for mobile"
-```
+**Decisions:**
+- "Use PostgreSQL over MySQL - we need JSONB support and our team knows it well"
+- "Go with bottom navigation for mobile - matches user expectations and keeps primary actions reachable"
 
-**Capture a conversation:**
-```
-"That was a useful discussion about our API versioning strategy - record it to @conversations"
-"Record our conversation about why we're prioritizing simplicity over flexibility in the onboarding flow"
-```
+**Discussions:**
+- "API versioning - URL vs headers"
+- "Why users struggle with the onboarding flow"
 
 ## Philosophy
 
 - **Plain text in git** - no databases, no special tools
 - **AI-friendly** - structured for LLMs to read and write
-- **Lightweight** - minimal overhead, simple templates
+- **Minimal structure** - just markdown files, no setup required
 - **Context preservation** - capture not just what, but why
 
 ## Documentation
@@ -44,4 +38,4 @@ Designed to work together, but each can be used on its own.
 Each system has its own documentation in its `core/` folder:
 - [backlog/core/README.md](backlog/core/README.md)
 - [decisions/core/README.md](decisions/core/README.md)
-- [conversations/core/README.md](conversations/core/README.md)
+- [discussions/core/README.md](discussions/core/README.md)
