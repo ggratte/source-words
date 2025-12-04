@@ -38,8 +38,8 @@ Each system has its own `core/` folder with documentation (README.md, FORMAT.md,
 
 - **File naming:** `topic-name.md` (no date prefix - discussions are living documents)
 - **Location:** Files go in `discussions/` root (not in `core/`)
+- **Points-based structure:** Each topic/alternative gets its own H2 section with all related reasoning grouped together
 - **Resolved discussions** go to `discussions/archive/`
-- **Update the "Current Thinking" section** as understanding evolves
 
 ## Image Assets
 

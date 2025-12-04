@@ -64,5 +64,6 @@ This system works independently in any project.
 ## Key Principles
 
 - **Capture, then evolve** - discussions often start from conversations, then become living documents
+- **Points-based structure** - each topic or alternative gets its own section with all related reasoning grouped together
 - **Current state first** - the document reflects where you are now
 - **Git preserves history** - you can always see how thinking evolved
