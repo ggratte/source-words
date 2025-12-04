@@ -44,10 +44,11 @@ Examples:
 
 ## Considerations
 
-[Arguments, tradeoffs, options being weighed]
-
 - **Option/Point A:** ...
+  [Explore the option - tradeoffs, reactions, why it does or doesn't fit...]
+
 - **Option/Point B:** ...
+  [Same - give each option room to breathe...]
 
 ## Open Questions
 
@@ -103,7 +104,7 @@ When the user wants to capture thinking into a discussion:
 
 1. Create a new file in `discussions/` (not in `core/`)
 2. Use the template above
-3. Focus on capturing the current state of thinking, not transcribing dialogue
+3. Capture the reasoning, not just conclusions. "We considered X but it felt too heavy" is more useful than just listing X. Include reactions, hesitations, and why things do or don't fit the situation.
 
 **Scoping:** Users may want a specific part of the conversation captured, not everything. Listen for what topic they're focusing on.
 
@@ -175,11 +176,11 @@ We're approaching the point where breaking changes to the API are needed. Need t
 
 ## Considerations
 
-- **URL versioning (`/v1/resource`):** Simple, visible, easy to test. But clutters URLs and can lead to version proliferation.
+- **URL versioning (`/v1/resource`):** Simple, visible in logs, easy to test in browser. The main hesitation is URL clutter and the temptation to proliferate versions. But for our scale, that's probably not a real concern yet.
 
-- **Header versioning (`Accept: application/vnd.api+json;version=1`):** Cleaner URLs, more RESTful in theory. But harder to test, less discoverable.
+- **Header versioning (`Accept: application/vnd.api+json;version=1`):** Cleaner in theory, more "proper" REST. But it adds friction - can't just paste a URL to test, need tooling. Feels like complexity for purity's sake.
 
-- **Query param (`?version=1`):** Easy to add, but feels hacky and optional.
+- **Query param (`?version=1`):** Considered briefly but feels wrong - versions aren't optional parameters, they're fundamental to the contract.
 
 ## Open Questions
 
