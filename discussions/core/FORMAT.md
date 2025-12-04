@@ -28,7 +28,6 @@ Examples:
 ```markdown
 # Discussion Title
 
-**Status:** active | paused | resolved
 **Tags:** [relevant keywords]
 **Related:** [optional - links to related files, URLs, etc.]
 
@@ -61,13 +60,9 @@ Examples:
 
 ## Lifecycle
 
-**Active** - Being deliberated. Update as thinking evolves.
-
-**Paused** - Not actively being worked on, but not resolved. May return to it.
-
-**Resolved** - Has served its purpose. Either:
-- **Archive** - worth keeping for reference
-- **Delete** - no longer relevant
+Discussions in the main folder are active. When one has served its purpose:
+- **Archive** - move to `discussions/archive/` if worth keeping for reference
+- **Delete** - if no longer relevant
 
 ## Archiving
 
@@ -120,8 +115,7 @@ Discussions are living documents that evolve as thinking develops. Examples of w
 When updating:
 1. Update "Current Thinking" to reflect the latest understanding
 2. Add new considerations or remove outdated ones
-3. Update status if it has changed
-4. Optionally note significant shifts in the History section
+3. Optionally note significant shifts in the History section
 
 ## Referencing Discussions
 
@@ -129,10 +123,7 @@ Users may want to pull relevant discussions into the current conversation as con
 
 ## Resolving Discussions
 
-When a discussion has served its purpose:
-
-1. Update status to "resolved"
-2. Move to archive or delete based on future reference value
+When a discussion has served its purpose, move it to `discussions/archive/` or delete it based on future reference value.
 
 ## Trigger Phrases
 
@@ -161,7 +152,6 @@ When a discussion has served its purpose:
 ```markdown
 # API Versioning Strategy
 
-**Status:** active
 **Tags:** api, architecture, breaking-changes
 
 ---
